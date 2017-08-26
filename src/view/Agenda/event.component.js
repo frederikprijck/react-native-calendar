@@ -13,7 +13,6 @@ function eventTypeStyle(color) {
 }
 
 export const EventComponent = ({ event }) => {
-    // TODO: Handle event types
     let eventType;
     switch (event.type) {
         case 'WORK':

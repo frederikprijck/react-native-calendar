@@ -6,7 +6,7 @@ import { EventComponent } from "./event.component";
 import { AGENDA_STYLES } from "./agenda.styles";
 
 export const AgendaComponent = ({ actions, events }) => {
-    console.log(actions, events);
+    // TODO: Handle showing / hiding events based on time
 
     return (
         <View style={ AGENDA_STYLES.agenda }>
