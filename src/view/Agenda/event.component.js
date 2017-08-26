@@ -31,13 +31,17 @@ export const EventComponent = ({ event }) => {
             eventType = <View style={ eventTypeStyle(THEME_COLORS.accentYellow) } />;
     }
 
-    // TODO: Handle event times
+    const startDate = new Date(event.timing.start);
+    const endDate = new Date(event.timing.end);
+    const start = `${ startDate.getHours() }:${ startDate.getMinutes() }`;
+    const end = `${ endDate.getHours() }:${ endDate.getMinutes() }`;
 
     return (
         <View style={ AGENDA_STYLES.event }>
             { eventType }
 
             <View style={ AGENDA_STYLES.eventBody }>
+                <Text>{ `${ start } - ${ end }` }</Text>
                 <Text>{ event.title }</Text>
                 <Text>{ event.description }</Text>
             </View>
