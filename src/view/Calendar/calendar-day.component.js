@@ -8,7 +8,6 @@ export const CalendarDay = ({ day, events, month, onSelect, selectedDate, year }
 
     if (events) {
         eventsToday = events.length;
-        console.log(eventsToday);
     }
 
     if (selectedDate) {
@@ -19,14 +18,14 @@ export const CalendarDay = ({ day, events, month, onSelect, selectedDate, year }
         if (selectedDay === day && selectedMonth === month && selectedYear === year) {
             return (
                 <TouchableHighlight style={ CALENDAR_STYLES.activeCalendarDay } onPress={() => onSelect(new Date(year, month, day)) } >
-                    { eventsToday ? <Text>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
+                    { eventsToday ? <Text style={{ fontWeight: 'bold' }}>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
                 </TouchableHighlight>
             );
         }
 
         return (
             <TouchableHighlight style={ CALENDAR_STYLES.calendarDay } onPress={() => onSelect(new Date(year, month, day)) } >
-                { eventsToday ? <Text>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
+                { eventsToday ? <Text style={{ fontWeight: 'bold' }}>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
             </TouchableHighlight>
         );
     }
