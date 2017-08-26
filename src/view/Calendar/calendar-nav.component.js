@@ -10,9 +10,9 @@ import { THEME_COLORS } from "../Theme/colors";
 export const CalenderNav = ({ onNext, onPrevious, title }) => {
     return (
         <View style={ CALENDAR_STYLES.calendarNav }>
-            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Prev" onPress={ onPrevious } color={THEME_COLORS.accentLight} />
+            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Prev" onPress={ onPrevious } color={THEME_COLORS.accentYellow} />
             <Title style={ CALENDAR_STYLES.calendarNavTitle }>{ title }</Title>
-            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Next" onPress={ onNext } color={THEME_COLORS.accentLight} />
+            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Next" onPress={ onNext } color={THEME_COLORS.accentYellow} />
         </View>
     );
 };

@@ -1,8 +1,13 @@
 // @flow
 
 import { EVENT_ACTION_TYPES } from "./events.actions";
+import { mockEvents } from "./events.mock";
 
-export const eventsReducer = (state: Event[] = [], action) => {
+const initialState = [
+    ...mockEvents
+];
+
+export const eventsReducer = (state: Event[] = initialState, action) => {
     switch (action.type) {
         case EVENT_ACTION_TYPES.CREATE_EVENT:
             return [

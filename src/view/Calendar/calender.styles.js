@@ -31,6 +31,8 @@ export const CALENDAR_STYLES = StyleSheet.create({
         color: THEME_COLORS.accentDark,
     },
     calendarMonth: {
+        borderBottomWidth: 1,
+        borderColor: THEME_COLORS.backgroundLight,
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -38,7 +40,7 @@ export const CALENDAR_STYLES = StyleSheet.create({
     },
     calendarHeaderDay: {
         alignItems: 'center',
-        backgroundColor: THEME_COLORS.accentLight,
+        backgroundColor: THEME_COLORS.accentYellow,
         flexDirection: 'row',
         height: Dimensions.get('window').width / 7,
         justifyContent: 'center',
@@ -47,7 +49,7 @@ export const CALENDAR_STYLES = StyleSheet.create({
     calendarDay: {
         alignItems: 'center',
         // borderTopWidth: 1,
-        borderColor: THEME_COLORS.accentLight,
+        borderColor: THEME_COLORS.accentYellow,
         backgroundColor: '#ffffff',
         flexDirection: 'row',
         flexGrow: 1,
@@ -58,8 +60,8 @@ export const CALENDAR_STYLES = StyleSheet.create({
     activeCalendarDay: {
         alignItems: 'center',
         // borderTopWidth: 1,
-        borderColor: THEME_COLORS.accentLight,
-        backgroundColor: THEME_COLORS.accentLight,
+        borderColor: THEME_COLORS.accentYellow,
+        backgroundColor: THEME_COLORS.accentYellow,
         flexDirection: 'row',
         height: Dimensions.get('window').width / 7,
         justifyContent: 'center',
@@ -68,7 +70,7 @@ export const CALENDAR_STYLES = StyleSheet.create({
     preday: {
         alignItems: 'center',
         // borderTopWidth: 1,
-        borderColor: THEME_COLORS.accentLight,
+        borderColor: THEME_COLORS.accentYellow,
         backgroundColor: '#f1f1f1',
         flexDirection: 'row',
         height: Dimensions.get('window').width / 7,
