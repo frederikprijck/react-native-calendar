@@ -9,7 +9,8 @@ import { datesAreEqual } from "../../domain/date.domain";
 
 function mapStateToProps(state) {
     return {
-        events: state.events.filter(event => datesAreEqual(event.date, state.date.selectedDate))
+        events: state.events.filter(event => datesAreEqual(event.date, state.date.selectedDate)),
+        date: state.date.selectedDate,
     }
 }
 

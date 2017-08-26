@@ -9,10 +9,18 @@ export const AGENDA_STYLES = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'stretch'
     },
+    dateHeader: {
+        alignItems: 'center',
+        backgroundColor: THEME_COLORS.backgroundWhite,
+        flex: 1,
+        flexDirection: 'row',
+        height: 60,
+        justifyContent: 'center',
+    },
     event: {
         alignItems: 'stretch',
         backgroundColor: THEME_COLORS.backgroundWhite,
-        borderBottomWidth: 1,
+        borderTopWidth: 1,
         borderColor: THEME_COLORS.backgroundLight,
         flex: 1,
         flexDirection: 'row',
