@@ -5,9 +5,7 @@ import { View } from 'react-native';
 import { CalendarDay } from "./calendar-day.component";
 import { CALENDAR_STYLES } from "./calender.styles";
 
-export const CalendarMonth = ({ daysInMonth, postdaysInMonth, predaysInMonth }) => {
-    console.log(postdaysInMonth);
-
+export const CalendarMonth = ({ daysInMonth, month, onSelect, postdaysInMonth, predaysInMonth, year }) => {
     const days = [];
     const predays = [];
     const postdays = [];
@@ -27,7 +25,7 @@ export const CalendarMonth = ({ daysInMonth, postdaysInMonth, predaysInMonth }) 
     return (
         <View style={ CALENDAR_STYLES.calendarMonth }>
             { predays.map(day => <CalendarDay style={ CALENDAR_STYLES.preday } key={day} day={''} />) }
-            { days.map(day => <CalendarDay style={ CALENDAR_STYLES.calendarDay } key={day} day={day} />) }
+            { days.map(day => <CalendarDay style={ CALENDAR_STYLES.calendarDay } key={day} day={day} month={month} year={year} onSelect={onSelect} />) }
             { postdays.map(day => <CalendarDay style={ CALENDAR_STYLES.preday } key={day} day={''} />) }
         </View>
     );

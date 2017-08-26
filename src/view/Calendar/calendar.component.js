@@ -24,9 +24,9 @@ export class CalendarComponent extends React.Component {
     }
 
     _calculateMonthValues() {
-        this.fullYear = this.date.selected.getFullYear();
-        this.fullMonth = getFullMonthName(this.date.selected, this.date.locale);
-        this.currentMonth = this.date.selected.getMonth();
+        this.fullYear = this.date.viewDate.getFullYear();
+        this.fullMonth = getFullMonthName(this.date.viewDate, this.date.locale);
+        this.currentMonth = this.date.viewDate.getMonth();
         this.previousMonth = new Date(this.fullYear, this.currentMonth - 1);
         this.nextMonth = new Date(this.fullYear, this.currentMonth + 1);
 
@@ -56,13 +56,20 @@ export class CalendarComponent extends React.Component {
             <ScrollView contentContainerstyle={CALENDAR_STYLES.calendar}>
                 <CalenderNav
                     title={`${this.fullMonth} ${this.fullYear}`.toUpperCase()}
-                    onPrevious={() => this.actions.changeDate(this.previousMonth)}
-                    onNext={() => this.actions.changeDate(this.nextMonth)}
+                    onPrevious={() => this.actions.setViewDate(this.previousMonth)}
+                    onNext={() => this.actions.setViewDate(this.nextMonth)}
                 />
 
                 <CalendarHeader daysOfWeek="MDWDVZZ" />
 
-                <CalendarMonth daysInMonth={this.daysInMonth} predaysInMonth={this.predaysInMonth} postdaysInMonth={this.postdaysInMonth}/>
+                <CalendarMonth
+                    daysInMonth={this.daysInMonth}
+                    predaysInMonth={this.predaysInMonth}
+                    postdaysInMonth={this.postdaysInMonth}
+                    onSelect={this.actions.setSelectedDate}
+                    year={this.fullYear}
+                    month={this.currentMonth}
+                />
             </ScrollView>
         );
     }
