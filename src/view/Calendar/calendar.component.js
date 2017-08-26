@@ -70,6 +70,7 @@ export class CalendarComponent extends React.Component {
                     year={this.fullYear}
                     month={this.currentMonth}
                     selectedDate={this.date.selectedDate}
+                    events={this.props.events}
                 />
             </ScrollView>
         );

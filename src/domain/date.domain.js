@@ -13,6 +13,13 @@ export function getWeekday(date) {
     return date.getDay();
 }
 
+export function datesAreFromSameMonth(date1, date2) {
+    let sameYear = date1.getFullYear() === date2.getFullYear();
+    let sameMonth = date1.getMonth() === date2.getMonth();
+
+    return sameYear && sameMonth;
+}
+
 export function datesAreEqual(date1, date2) {
     let sameYear = date1.getFullYear() === date2.getFullYear();
     let sameMonth = date1.getMonth() === date2.getMonth();

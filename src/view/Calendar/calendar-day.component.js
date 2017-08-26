@@ -3,7 +3,14 @@ import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 import { CALENDAR_STYLES } from "./calender.styles";
 
-export const CalendarDay = ({ day, month, onSelect, selectedDate, year }) => {
+export const CalendarDay = ({ day, events, month, onSelect, selectedDate, year }) => {
+    let eventsToday = '';
+
+    if (events) {
+        eventsToday = events.length;
+        console.log(eventsToday);
+    }
+
     if (selectedDate) {
         let selectedDay = selectedDate.getDate();
         let selectedMonth = selectedDate.getMonth();
@@ -12,14 +19,14 @@ export const CalendarDay = ({ day, month, onSelect, selectedDate, year }) => {
         if (selectedDay === day && selectedMonth === month && selectedYear === year) {
             return (
                 <TouchableHighlight style={ CALENDAR_STYLES.activeCalendarDay } onPress={() => onSelect(new Date(year, month, day)) } >
-                    <Text>{ day }</Text>
+                    { eventsToday ? <Text>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
                 </TouchableHighlight>
             );
         }
 
         return (
             <TouchableHighlight style={ CALENDAR_STYLES.calendarDay } onPress={() => onSelect(new Date(year, month, day)) } >
-                <Text>{ day }</Text>
+                { eventsToday ? <Text>{ `${day} (${eventsToday})` }</Text> : <Text>{ day }</Text> }
             </TouchableHighlight>
         );
     }

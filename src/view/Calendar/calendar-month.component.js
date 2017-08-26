@@ -4,8 +4,9 @@ import React from 'react';
 import { View } from 'react-native';
 import { CalendarDay } from "./calendar-day.component";
 import { CALENDAR_STYLES } from "./calender.styles";
+import { datesAreEqual } from "../../domain/date.domain";
 
-export const CalendarMonth = ({ daysInMonth, month, onSelect, postdaysInMonth, predaysInMonth, selectedDate, year }) => {
+export const CalendarMonth = ({ daysInMonth, events, month, onSelect, postdaysInMonth, predaysInMonth, selectedDate, year }) => {
     const days = [];
     const predays = [];
     const postdays = [];
@@ -29,10 +30,12 @@ export const CalendarMonth = ({ daysInMonth, month, onSelect, postdaysInMonth, p
             { days.map(day => (
                 <CalendarDay
                     day={day}
+                    events={events.filter(event => datesAreEqual(event.date, new Date(year, month, day)))}
                     key={day}
                     month={month}
+                    onSelect={onSelect}
                     selectedDate={selectedDate}
-                    year={year} onSelect={onSelect}
+                    year={year}
                 />
             ))}
 
