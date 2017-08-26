@@ -69,6 +69,7 @@ export class CalendarComponent extends React.Component {
                     onSelect={this.actions.setSelectedDate}
                     year={this.fullYear}
                     month={this.currentMonth}
+                    selectedDate={this.date.selectedDate}
                 />
             </ScrollView>
         );
