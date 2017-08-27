@@ -9,7 +9,9 @@ import { getDaysInMonth, getFullMonthName, getWeekday } from "../../domain/date.
 import { CALENDAR_STYLES } from "./calender.styles";
 
 export class CalendarComponent extends React.Component {
-    componentWillMount() {
+    constructor(props) {
+        super(props);
+
         this.date = this.props.date;
         this.actions = this.props.actions;
 

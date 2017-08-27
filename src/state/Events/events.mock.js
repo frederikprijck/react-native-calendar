@@ -2,7 +2,7 @@
 import { Event } from "./events.model";
 import { EVENT_TYPES } from "./events.types";
 
-export const mockEvents: Event[] = [
+export const eventsMock: Event[] = [
     {
         id: 1,
         type: EVENT_TYPES.WORK,
