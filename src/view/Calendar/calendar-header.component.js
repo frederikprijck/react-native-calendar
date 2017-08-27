@@ -1,10 +1,14 @@
-// @flow
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import { CalendarDay } from "./calendar-day.component";
+import { CALENDAR_STYLES } from "./calender.styles";
 
-export const CalendarHeader = ({ daysOfWeek }) => (
-    <View style={{ flex: 1, flexDirection: 'row' }}>
-        { daysOfWeek.split('').map((day, i) => <CalendarDay key={`${day}${i}`} day={day} />) }
-    </View>
-);
+/*
+* TODO: CalendarHeader
+* TODO: Show the days of the week
+* */
+
+CalendarHeader.propTypes = {
+    daysOfWeek: PropTypes.string
+};

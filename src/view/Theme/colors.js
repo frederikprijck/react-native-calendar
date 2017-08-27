@@ -1,5 +1,3 @@
-// @flow
-
 export const THEME_COLORS = {
     accentYellow: '#F3B54A',
     accentOrange: '#F37338',

@@ -1,5 +1,3 @@
-// @flow
-
 import { Dimensions, StyleSheet } from 'react-native';
 import { THEME_COLORS } from "../Theme/colors";
 
@@ -37,6 +35,10 @@ export const CALENDAR_STYLES = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
+    },
+    calendarHeader: {
+        flex: 1,
+        flexDirection: 'row',
     },
     calendarHeaderDay: {
         alignItems: 'center',

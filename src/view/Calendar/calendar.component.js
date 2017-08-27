@@ -1,80 +1,26 @@
-// @flow
-
 import React from 'react';
 import { ScrollView } from 'react-native';
+import PropTypes from 'prop-types';
 import { CalenderNav } from "./calendar-nav.component";
 import { CalendarHeader } from "./calendar-header.component";
 import { CalendarMonth } from "./calendar-month.component";
 import { getDaysInMonth, getFullMonthName, getWeekday } from "../../domain/date.domain";
 import { CALENDAR_STYLES } from "./calender.styles";
 
-export class CalendarComponent extends React.Component {
-    constructor(props) {
-        super(props);
+const daysOfWeek = 'MDWDVZZ';
 
-        this.date = this.props.date;
-        this.actions = this.props.actions;
+/*
+* TODO: CalendarComponent
+* TODO: show a calendar navigation (current month and links to previous and next month)
+* TODO: show a header with weekdays
+* TODO: calculate the number of days in the month
+* TODO: calculate the number of 'predays'
+* TODO: calculate the number of 'postdays'
+*
+* Data needed: fullYear, fullMonth, currentMonth, previousMonth, nextMonth
+* */
 
-        this._calculateMonthValues();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (!this.props.date || nextProps.date !== this.props.date) {
-            this.date = nextProps.date;
-            this._calculateMonthValues();
-        }
-    }
-
-    _calculateMonthValues() {
-        this.fullYear = this.date.viewDate.getFullYear();
-        this.fullMonth = getFullMonthName(this.date.viewDate, this.date.locale);
-        this.currentMonth = this.date.viewDate.getMonth();
-        this.previousMonth = new Date(this.fullYear, this.currentMonth - 1);
-        this.nextMonth = new Date(this.fullYear, this.currentMonth + 1);
-
-        this.daysInMonth = this._calculateDaysInMonth();
-        this.predaysInMonth = this._calculatePredays();
-        this.postdaysInMonth = this._calculatePostdays();
-    }
-
-    _calculateDaysInMonth() {
-        return getDaysInMonth(this.currentMonth, this.fullYear);
-    }
-
-    _calculatePredays() {
-        if (getWeekday(new Date(this.fullYear, this.currentMonth)) > 0) {
-            return getWeekday(new Date(this.fullYear, this.currentMonth)) - 1;
-        }
-
-        return getWeekday(new Date(this.fullYear, this.currentMonth)) + 6;
-    }
-
-    _calculatePostdays() {
-        return (this.daysInMonth + this.predaysInMonth) % 7 > 0 ? 7 - ((this.daysInMonth + this.predaysInMonth) % 7) : 0;
-    }
-
-    render() {
-        return (
-            <ScrollView contentContainerstyle={CALENDAR_STYLES.calendar}>
-                <CalenderNav
-                    title={`${this.fullMonth} ${this.fullYear}`.toUpperCase()}
-                    onPrevious={() => this.actions.setViewDate(this.previousMonth)}
-                    onNext={() => this.actions.setViewDate(this.nextMonth)}
-                />
-
-                <CalendarHeader daysOfWeek="MDWDVZZ" />
-
-                <CalendarMonth
-                    daysInMonth={this.daysInMonth}
-                    predaysInMonth={this.predaysInMonth}
-                    postdaysInMonth={this.postdaysInMonth}
-                    onSelect={this.actions.setSelectedDate}
-                    year={this.fullYear}
-                    month={this.currentMonth}
-                    selectedDate={this.date.selectedDate}
-                    events={this.props.events}
-                />
-            </ScrollView>
-        );
-    }
-}
+CalendarComponent.propTypes = {
+    date: PropTypes.date,
+    actions: PropTypes.array,
+};

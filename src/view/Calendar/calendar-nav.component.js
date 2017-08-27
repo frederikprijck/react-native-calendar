@@ -1,17 +1,17 @@
-// @flow
-
 import React from 'react';
 import { Button, Text, View } from 'react-native';
-
+import PropTypes from 'prop-types';
 import { CALENDAR_STYLES } from "./calender.styles";
 import { THEME_COLORS } from "../Theme/colors";
 
-export const CalenderNav = ({ onNext, onPrevious, title }) => {
-    return (
-        <View style={ CALENDAR_STYLES.calendarNav }>
-            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Prev" onPress={ onPrevious } color={THEME_COLORS.accentYellow} />
-            <Text style={ CALENDAR_STYLES.calendarNavTitle }>{ title }</Text>
-            <Button style={ CALENDAR_STYLES.calendarNavButton } title="Next" onPress={ onNext } color={THEME_COLORS.accentYellow} />
-        </View>
-    );
+/*
+* TODO: CalenderNav
+* TODO: Show the current month
+* TODO: Change to previous / next month
+* */
+
+CalenderNav.propTypes = {
+    title: PropTypes.string,
+    onNext: PropTypes.func,
+    onPrevious: PropTypes.func
 };
