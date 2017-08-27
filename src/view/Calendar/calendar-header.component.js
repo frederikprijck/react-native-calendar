@@ -5,7 +5,7 @@ import { CalendarDay } from "./calendar-day.component";
 import { CALENDAR_STYLES } from "./calender.styles";
 
 /*
-* TODO: CalendarHeader
+* TODO: CalendarHeader-component
 * TODO: Show the days of the week
 * */
 

@@ -5,7 +5,7 @@ import { CALENDAR_STYLES } from "./calender.styles";
 import { THEME_COLORS } from "../Theme/colors";
 
 /*
-* TODO: CalenderNav
+* TODO: CalenderNav-component
 * TODO: Show the current month
 * TODO: Change to previous / next month
 * */

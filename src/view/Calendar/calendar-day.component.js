@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { CALENDAR_STYLES } from "./calender.styles";
 
 /*
-* TODO: CalenderDay
+* TODO: CalenderDay-component
 * TODO: Switch between an active day, a normal day or a day of another month
 * */
 

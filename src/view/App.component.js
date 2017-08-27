@@ -5,11 +5,8 @@ import { store } from "../state/store";
 import { DateContainer } from "../state/Date/date.container";
 import { EventsContainer } from "../state/Events/events.container";
 
-export const App = () => (
-    <Provider store={store}>
-        <ScrollView>
-            <DateContainer />
-            <EventsContainer />
-        </ScrollView>
-    </Provider>
-);
+/*
+* TODO: App-component
+* TODO: Add a Provider with the store
+* TODO: Add data through containers
+* */

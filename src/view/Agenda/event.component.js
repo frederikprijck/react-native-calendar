@@ -1,7 +1,6 @@
-// @flow
-
 import React from 'react';
 import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { AGENDA_STYLES } from "./agenda.styles";
 import { THEME_COLORS } from "../Theme/colors";
 
@@ -12,39 +11,12 @@ function eventTypeStyle(color) {
     };
 }
 
-export const EventComponent = ({ event }) => {
-    let eventType;
-    switch (event.type) {
-        case 'WORK':
-            eventType = <View style={ eventTypeStyle(THEME_COLORS.accentOrange) } />;
-            break;
+/*
+* TODO: EventComponent
+* TODO: Show an event ( type, title, description, timing )
+* TODO: Switch between event-types
+* */
 
-        case 'SOCIAL':
-            eventType = <View style={ eventTypeStyle(THEME_COLORS.accentBlue) } />;
-            break;
-
-        case 'PRIVATE':
-            eventType = <View style={ eventTypeStyle(THEME_COLORS.accentGreen) } />;
-            break;
-
-        default:
-            eventType = <View style={ eventTypeStyle(THEME_COLORS.accentYellow) } />;
-    }
-
-    const startDate = new Date(event.timing.start);
-    const endDate = new Date(event.timing.end);
-    const start = `${ startDate.getHours() }:${ startDate.getMinutes() }`;
-    const end = `${ endDate.getHours() }:${ endDate.getMinutes() }`;
-
-    return (
-        <View style={ AGENDA_STYLES.event }>
-            { eventType }
-
-            <View style={ AGENDA_STYLES.eventBody }>
-                <Text>{ `${ start } - ${ end }` }</Text>
-                <Text>{ event.title }</Text>
-                <Text>{ event.description }</Text>
-            </View>
-        </View>
-    );
+EventComponent.propTypes = {
+    event: PropTypes.object,
 };

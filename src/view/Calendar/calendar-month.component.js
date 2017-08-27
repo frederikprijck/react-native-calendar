@@ -6,7 +6,8 @@ import { CALENDAR_STYLES } from "./calender.styles";
 import { datesAreEqual } from "../../domain/date.domain";
 
 /*
-* TODO: Show a complete month
+* TODO: CalenderMonth-component
+* TODO: Show days of the current month
 * TODO: Show days of the previous month
 * TODO: Show days of the next month
 * */

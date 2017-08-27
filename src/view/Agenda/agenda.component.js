@@ -1,21 +1,18 @@
-// @flow
-
 import React from 'react';
 import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { EventComponent } from "./event.component";
 import { AGENDA_STYLES } from "./agenda.styles";
 import { getFullMonthName } from "../../domain/date.domain";
 
-export const AgendaComponent = ({ actions, date, events }) => {
-    return (
-        <View style={ AGENDA_STYLES.agenda }>
-            { events.length > 0 ?
-                <View style={ AGENDA_STYLES.dateHeader }>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{`${date.getDate()} ${getFullMonthName(date)} ${date.getFullYear()}`}</Text>
-                </View> : null
-            }
+/*
+* TODO: AgandaComponent
+* TODO: Show the selected date in a header when the date has events
+* TODO: Show events (in order)
+* */
 
-            { events.map(event => <EventComponent key={event.id} event={event} onDelete={() => actions.deleteEvent(event.id)} />) }
-        </View>
-    );
+AgendaComponent.propTypes = {
+    actions: PropTypes.array,
+    date: PropTypes.date,
+    events: PropTypes.array,
 };
